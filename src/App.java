@@ -13,10 +13,11 @@ public class App {
 
         while (initialSum < requiredSum) {
             initialSum += amountOfSavings;
-            months++;
-        }
 
-        System.out.printf("Месяц %d сумма накоплений равна %d", months, initialSum);
+            months++;
+
+            System.out.printf("\nМесяц %d сумма накоплений равна %d", months, initialSum);
+        }
 
         //Задача №2
 
@@ -85,7 +86,7 @@ public class App {
             }
         }
 
-        //Задача №6
+        // //Задача №6
 
         int initialDepositAmout3 = 15000;
 
@@ -103,14 +104,12 @@ public class App {
 
         //Задача №7
 
-        int reportingDay = 5;
+        int reportingDay = 1;
 
-        for (int i = 1; i <= 31; i++) {
-            if (reportingDay % 5 == 0 && reportingDay <= 31) {
-                System.out.printf("\n Сегодня пятница %d-е число. Необходимо подготовить отчет", reportingDay);
-            }  
+        while (reportingDay <= 31) {
+            System.out.printf("\n Сегодня пятница %d-е число. Необходимо подготовить отчет", reportingDay);
 
-            reportingDay++;
+            reportingDay += 7;
         }
 
         //Задача №8
