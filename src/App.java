@@ -12,40 +12,58 @@ public class App {
 
         //Задача №2
 
-        for(int i = 0; i <= intArr.length - 1; i++) { 
-            System.out.printf(intArr[i] + ", ");
+        if (intArr.length >= 1) {
+            System.out.print(intArr[0]);
+        }
+        for(int i = 1; i <= intArr.length - 1; i++) { 
+            System.out.print(", " + intArr[i]);
         }
 
         System.out.println();
 
-        for (int i = 0; i <= floatArr.length - 1; i++) {
-            System.out.print(floatArr[i] + ", ");
+        if (floatArr.length >= 1) {
+            System.out.print(floatArr[0]);
+        }
+        for(int i = 1; i <= floatArr.length - 1; i++) { 
+            System.out.print(", " + floatArr[i]);
         }
 
         System.out.println();
 
-        for (int i = 0; i <= boolArr.length - 1; i++) {
-            System.out.print(boolArr[i] + ", ");
+        if (boolArr.length >= 1) {
+            System.out.print(boolArr[0]);
+        }
+        for(int i = 1; i <= boolArr.length - 1; i++) { 
+            System.out.print(", " + boolArr[i]);
         }
 
         System.out.println("\n------------------");
 
         //Задача №3
 
-        for(int i = intArr.length - 1; i >= 0; i--) { 
-            System.out.print(intArr[i] + ", ");
+        if (intArr.length >= 1) {
+            System.out.print(intArr[intArr.length - 1]);
+        }
+        for(int i = intArr.length - 2; i >= 0; i--) { 
+            System.out.print(", " + intArr[i]);
         }
 
         System.out.println();
 
-        for(int i = floatArr.length - 1; i >= 0; i--) { 
-            System.out.print(floatArr[i] + ", ");
+        if (floatArr.length >= 1) {
+            System.out.print(floatArr[floatArr.length - 1]);
+        }
+        for(int i = floatArr.length - 2; i >= 0; i--) { 
+            System.out.print(", " + floatArr[i]);
         }
 
         System.out.println();
 
-        for(int i = boolArr.length - 1; i >= 0; i--) { 
-            System.out.print(boolArr[i] + ", ");
+        if (boolArr.length >= 1) {
+            System.out.print(boolArr[boolArr.length - 1]);
+        }
+        for(int i = boolArr.length - 2; i >= 0; i--) { 
+            System.out.print(", " + boolArr[i]);
         }
 
         System.out.println("\n------------------");
