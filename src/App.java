@@ -1,129 +1,65 @@
+import java.util.Arrays;
 
 public class App {
     public static void main(String[] args) throws Exception {
         //Задача №1
 
-        int initialSum = 0;
+        int[] intArr = new int[]{1, 2, 3};
 
-        int requiredSum = 2459000;
+        float[] floatArr = {1.57F, 7.654F, 9.986F};
 
-        int amountOfSavings = 15000;
-
-        int months = 0;
-
-        while (initialSum < requiredSum) {
-            initialSum += amountOfSavings;
-
-            months++;
-
-            System.out.printf("\nМесяц %d сумма накоплений равна %d", months, initialSum);
-        }
+        boolean[] boolArr = {true, false, true};
 
         //Задача №2
 
-        int toGreatest = 1;
-
-        int toSmallest = 10;
-
-        while (toGreatest <= 10) {
-            System.out.printf("%c%d%c", ' ', toGreatest, ' ');
-            toGreatest++;
+        for(int i = 0; i <= intArr.length - 1; i++) { 
+            System.out.printf(intArr[i] + ", ");
         }
 
-        System.out.println("\n");
+        System.out.println();
 
-        for (; toSmallest >= 1; toSmallest--) {
-            System.out.printf("%c%d%c", ' ', toSmallest, ' ');
+        for (int i = 0; i <= floatArr.length - 1; i++) {
+            System.out.print(floatArr[i] + ", ");
         }
+
+        System.out.println();
+
+        for (int i = 0; i <= boolArr.length - 1; i++) {
+            System.out.print(boolArr[i] + ", ");
+        }
+
+        System.out.println("\n------------------");
 
         //Задача №3
 
-        int nationalPopulation = 12000000;
-
-        int birthRate = 17;
-
-        int deathRate = 8;
-
-        int years = 0;
-
-        int populationGrowth = birthRate - deathRate;
-
-        for (int i = 0; i <= 10; i++) {
-            nationalPopulation += (nationalPopulation * populationGrowth / 1000);
-
-            years++;
-
-            System.out.printf("\nГод %d численность населения составляет %d", years, (int)nationalPopulation);
+        for(int i = intArr.length - 1; i >= 0; i--) { 
+            System.out.print(intArr[i] + ", ");
         }
+
+        System.out.println();
+
+        for(int i = floatArr.length - 1; i >= 0; i--) { 
+            System.out.print(floatArr[i] + ", ");
+        }
+
+        System.out.println();
+
+        for(int i = boolArr.length - 1; i >= 0; i--) { 
+            System.out.print(boolArr[i] + ", ");
+        }
+
+        System.out.println("\n------------------");
 
         //Задача №4
 
-        int initialDepositAmout = 15000;
+        System.out.println(Arrays.toString(intArr));
 
-        int targetDepositAmout = 12000000;
-
-        float depositRate = 0.07f;
-
-        for(int i = 0; initialDepositAmout <= targetDepositAmout; i++) { 
-            initialDepositAmout += initialDepositAmout * depositRate;
-
-            System.out.printf("\nМесяц %d сумма накоплений равна %d", i, (int)initialDepositAmout);
-        }
-
-        //Задача №5
-
-        int initialDepositAmout2 = 15000;
-
-        int targetDepositAmout2 = 12000000;
-
-        float depositRate2 = 0.07f;
-
-        for(int i = 0; initialDepositAmout2 <= targetDepositAmout2; i++) { 
-            initialDepositAmout2 += initialDepositAmout2 * depositRate2;
-
-            if (i % 6 == 0 && i != 0) {
-                System.out.printf("\nМесяц %d сумма накоплений равна %d", i, (int)initialDepositAmout2);
+        for(int i = 0; i < intArr.length; i++) { 
+            if (intArr[i] % 2 != 0) { 
+                intArr[i] += 1;
             }
         }
 
-        // //Задача №6
-
-        int initialDepositAmout3 = 15000;
-
-        float depositRate3 = 0.07f;
-
-        int monthsInYears = 12 * 9;
-
-        for(int i = 0; i <= monthsInYears; i++) { 
-            initialDepositAmout3 += initialDepositAmout3 * depositRate3;
-
-            if (i % 6 == 0 && i != 0) {
-                System.out.printf("\nМесяц %d сумма накоплений равна %d", i, (int)initialDepositAmout3);
-            }
-        }
-
-        //Задача №7
-
-        int reportingDay = 1;
-
-        while (reportingDay <= 31) {
-            System.out.printf("\n Сегодня пятница %d-е число. Необходимо подготовить отчет", reportingDay);
-
-            reportingDay += 7;
-        }
-
-        //Задача №8
-
-        int initialYear = 2024;
-
-        int pastYears = initialYear - 200;
-
-        int nextYears = initialYear + 100;
-
-        for (int i = pastYears; i <= nextYears; i++) { 
-            if (i % 79 == 0) {
-                System.out.println(i);
-            }
-        }
+        System.out.println(Arrays.toString(intArr));
     } 
 }
