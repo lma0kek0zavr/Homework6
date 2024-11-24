@@ -1,80 +1,84 @@
+
+
 public class App {
     public static void main(String[] args) throws Exception {
-        
+       
         //Задача №1
 
-        for (int i = 0; i <= 10 ; i++) {
-            System.out.println(i);
+        int[] arr1 = generateRandomArray();
+
+        int sum = 0;
+
+        for(int i : arr1) {
+            sum += i;
         }
+
+        System.out.printf("Сумма трат за месяц составила %d рублей", sum);
+
+        System.out.println("\n---------------------------");
 
         //Задача №2
 
-        for (int i = 10; i >= 1; i--) {
-            System.out.println(i);
+        int[] arr2 = generateRandomArray();
+
+        int minValue = arr2[0];
+
+        int maxValue = arr2[0];
+
+        for(int i : arr2) {
+            if(i < minValue) {
+                minValue = i;
+            }
+
+            if(i > maxValue) {
+                maxValue = i;
+            }
         }
+
+        System.out.printf("Минимальная сумма трат за неделю составила %d рублей. Максимальная сумма трат за неделю составила %d рублей", minValue, maxValue);
+
+        System.out.println("\n---------------------------");
 
         //Задача №3
 
-        for (int i = 0; i <= 17; i += 2) { 
-            System.out.println(i);
+        int[] arr3 = generateRandomArray();
+
+        int totalExpenses = 0;
+
+        for(int i : arr3) {
+            totalExpenses += i;
         }
+
+        double averageExpenses = (double)(totalExpenses / arr3.length);
+
+        System.out.printf("Средняя сумма трат за месяц составила %f рублей", averageExpenses);
+
+        System.out.println("\n---------------------------");
 
         //Задача №4
 
-        for(int i = 10; i >= -10; i--) { 
-            System.out.println(i);
+        char[] reverseFullName = { 'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
+
+        for(int i = 0; i < reverseFullName.length / 2; i++) { 
+            char temp = reverseFullName[i];
+
+            reverseFullName[i] = reverseFullName[reverseFullName.length - i - 1];
+
+            reverseFullName[reverseFullName.length - i - 1] = temp;
         }
 
-        //Задача №5
-
-        for (int i = 1904; i <= 2096; i += 4) { 
-            System.out.printf("\n%d год является високосным", i);
+        for (char c : reverseFullName) {
+            System.out.print(c);
         }
+    } 
 
-        //Задача №6
+    public static int[] generateRandomArray() { 
+        int[] arr = new int[5];
 
-        for (int i = 7; i <= 98; i += 7) {
-            System.out.printf("%c%d%c", ' ', i, ' ');
+        java.util.Random random = new java.util.Random();
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = random.nextInt(100000) + 100000;
         }
-
-        //Задача №7
-
-        for (int i = 1; i <= 512; i *= 2) {
-            System.out.printf("%c%d%c", ' ', i, ' ');
-        }
-
-        //Задача №8
-
-        int savingSum = 29000;
-
-        int totalSavings = 0;
-
-        for (int i = 1; i <= 12; i++) { 
-            totalSavings += savingSum;
-
-            System.out.printf("\nМесяц %d, сумма накоплений равна %d рублей", i, totalSavings);
-        }
-
-        //Задача №9
-
-        int savingSum_2 = 29000;
-
-        int totalSavings_2 = 0;
-
-        float percentage = 1.01F;
-
-        for (int i = 1; i <= 12; i++) { 
-            totalSavings_2 += savingSum_2;
-
-            totalSavings_2 *= percentage;
-
-            System.out.printf("\nМесяц %d, сумма накоплений равна %d рублей", i, totalSavings_2);
-        }
-
-        //Задача №10
-
-        for(int i = 1; i <= 10; i++) { 
-            System.out.printf("\n2 * %d = %d", i, i * 2);
-        }
+        return arr;
     }
 }
