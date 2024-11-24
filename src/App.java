@@ -1,89 +1,84 @@
-import java.util.Arrays;
+
 
 public class App {
     public static void main(String[] args) throws Exception {
+       
         //Задача №1
 
-        int[] intArr = new int[]{1, 2, 3};
+        int[] arr1 = generateRandomArray();
 
-        float[] floatArr = {1.57F, 7.654F, 9.986F};
+        int sum = 0;
 
-        boolean[] boolArr = {true, false, true};
+        for(int i : arr1) {
+            sum += i;
+        }
+
+        System.out.printf("Сумма трат за месяц составила %d рублей", sum);
+
+        System.out.println("\n---------------------------");
 
         //Задача №2
 
-        for (int i = 0; i < intArr.length; i++) {
-            System.out.print(intArr[i]);
+        int[] arr2 = generateRandomArray();
 
-            if (i != intArr.length - 1) {
-                System.out.print(", ");
+        int minValue = arr2[0];
+
+        int maxValue = arr2[0];
+
+        for(int i : arr2) {
+            if(i < minValue) {
+                minValue = i;
+            }
+
+            if(i > maxValue) {
+                maxValue = i;
             }
         }
 
-        System.out.println();
+        System.out.printf("Минимальная сумма трат за неделю составила %d рублей. Максимальная сумма трат за неделю составила %d рублей", minValue, maxValue);
 
-        for (int i = 0; i < floatArr.length; i++) {
-            System.out.print(floatArr[i]);
-
-            if (i != floatArr.length - 1) {
-                System.out.print(", ");
-            }
-        }
-
-        System.out.println();
-
-        for (int i = 0; i < boolArr.length; i++) {
-            System.out.print(boolArr[i]);
-
-            if (i != boolArr.length - 1) {
-                System.out.print(", ");
-            }
-        }
-
-        System.out.println("\n------------------");
+        System.out.println("\n---------------------------");
 
         //Задача №3
 
-        for (int i = intArr.length - 1; i >= 0; i--) {
-            System.out.print(intArr[i]);
+        int[] arr3 = generateRandomArray();
 
-            if (i != 0) {
-                System.out.print(", ");
-            }
+        int totalExpenses = 0;
+
+        for(int i : arr3) {
+            totalExpenses += i;
         }
 
-        System.out.println();
+        double averageExpenses = (double)(totalExpenses / arr3.length);
 
-        for (int i = floatArr.length - 1; i >= 0; i--) {
-            System.out.print(floatArr[i]);
+        System.out.printf("Средняя сумма трат за месяц составила %f рублей", averageExpenses);
 
-            if (i != 0) {
-                System.out.print(", ");
-            }
-        }
-
-        System.out.println();
-
-        for (int i = boolArr.length - 1; i >= 0; i--) {
-            System.out.print(boolArr[i]);
-
-            if (i != 0) {
-                System.out.print(", ");
-            }
-        }
-
-        System.out.println("\n------------------");
+        System.out.println("\n---------------------------");
 
         //Задача №4
 
-        System.out.println(Arrays.toString(intArr));
+        char[] reverseFullName = { 'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
 
-        for(int i = 0; i < intArr.length; i++) { 
-            if (intArr[i] % 2 != 0) { 
-                intArr[i] += 1;
-            }
+        for(int i = 0; i < reverseFullName.length / 2; i++) { 
+            char temp = reverseFullName[i];
+
+            reverseFullName[i] = reverseFullName[reverseFullName.length - i - 1];
+
+            reverseFullName[reverseFullName.length - i - 1] = temp;
         }
 
-        System.out.println(Arrays.toString(intArr));
+        for (char c : reverseFullName) {
+            System.out.print(c);
+        }
     } 
+
+    public static int[] generateRandomArray() { 
+        int[] arr = new int[5];
+
+        java.util.Random random = new java.util.Random();
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = random.nextInt(100000) + 100000;
+        }
+        return arr;
+    }
 }
