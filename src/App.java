@@ -1,32 +1,91 @@
-
+import java.time.LocalDate;
+import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) throws Exception {
-       
-        //Задача №1
 
-        String firstName = "Ivan";
+        //Задание №1
+        Scanner yearScanner = new Scanner(System.in);
 
-        String middleName = "Ivanovich";
+        int year;
 
-        String lastName = "Ivanov";
+        System.out.print("Укажите год: ");
 
-        String fullName = String.join(" ", lastName, firstName, middleName);
+        year = yearScanner.nextInt();
 
-        System.out.printf("\nФ. И. О. сотрудника - %s", fullName);
+        isLeapYear(year);
 
-        //Задача №2
+        //Задание №2
 
-        String upperFullName = fullName.toUpperCase();
+        Scanner deviceScanner = new Scanner(System.in);
 
-        System.out.printf("\nДанные Ф. И. О. сотрудника для заполнения отчета - %s", upperFullName);
+        int deviceOS;
+        
+        int clientDeviceYear;
+            
+        System.out.print("Какое у вас устройство (0 - iOS, 1 - Android)?: ");
+        deviceOS = deviceScanner.nextInt();
 
-        //Задача №3
+        System.out.print("\nУкажите год выпуска вашего устройства: ");
+        clientDeviceYear = deviceScanner.nextInt();
 
-        String fullName2 = "Иванов Семён Семёнович";
+        appVersion(deviceOS, clientDeviceYear);
+        
+        //Задание №3
 
-        String newFullName = fullName2.replace('ё', 'е');
+        Scanner distanceScanner = new Scanner(System.in);
 
-        System.out.printf("\nДанные Ф. И. О. сотрудника - %s", newFullName);
+        int deliveryDistance;
+
+        System.out.print("\nВведите расстояние в километрах: ");
+
+        deliveryDistance = distanceScanner.nextInt();
+
+        calculateDeliveryTime(deliveryDistance);
+    }
+
+    public static void isLeapYear(int year) {
+        if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+            System.out.printf("%d год - високосный год", year);
+        } else {
+            System.out.printf("%d год - невисокосный год", year);
+        }
+    }
+
+    public static void appVersion(int deviceOS, int year) {
+        int currentYear = LocalDate.now().getYear();
+
+        if (deviceOS == 0 && year < currentYear) {
+            System.out.println("Установите облегченную версию приложения для iOS по ссылке");
+        }
+        else if (deviceOS == 1 && year < currentYear) {
+            System.out.println("Установите облегченную версию приложения для Android по ссылке");
+        }
+        else if (deviceOS == 0 && year >= currentYear) {
+            System.out.println("Установите версию приложения для iOS по ссылке");
+        }
+        else if (deviceOS == 1 && year >= currentYear) {
+            System.out.println("Установите версию приложения для Android по ссылке");
+        }
+        else {
+            System.out.println("Неизвестное устройство!");
+        }
+    }
+
+    public static void calculateDeliveryTime(int deliveryDistance) { 
+        int defaultDeliverytime = 1;
+
+        if (deliveryDistance < 20) { 
+            System.out.printf("Потребуется дней: %d", defaultDeliverytime);
+        }
+        else if (deliveryDistance >= 20 && deliveryDistance < 60) { 
+            System.out.printf("Потребуется дней: %d", defaultDeliverytime + 1);
+        }
+        else if (deliveryDistance >= 60 && deliveryDistance <= 100) { 
+            System.out.printf("Потребуется дней: %d", defaultDeliverytime + 2);
+        }
+        else {
+            System.out.println("Доставки нет");
+        }
     }
 }
