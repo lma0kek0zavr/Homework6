@@ -5,6 +5,7 @@ public class App {
     public static void main(String[] args) throws Exception {
 
         //Задание №1
+        
         Scanner yearScanner = new Scanner(System.in);
 
         int year;
@@ -41,7 +42,7 @@ public class App {
 
         deliveryDistance = distanceScanner.nextInt();
 
-        calculateDeliveryTime(deliveryDistance);
+        System.out.printf("Потребуется дней: %d", calculateDeliveryTime(deliveryDistance));
     }
 
     public static void isLeapYear(int year) {
@@ -72,20 +73,17 @@ public class App {
         }
     }
 
-    public static void calculateDeliveryTime(int deliveryDistance) { 
+    public static int calculateDeliveryTime(int deliveryDistance) { 
         int defaultDeliverytime = 1;
 
-        if (deliveryDistance < 20) { 
-            System.out.printf("Потребуется дней: %d", defaultDeliverytime);
+        if (deliveryDistance <= 20) {
+            return defaultDeliverytime;
         }
-        else if (deliveryDistance >= 20 && deliveryDistance < 60) { 
-            System.out.printf("Потребуется дней: %d", defaultDeliverytime + 1);
-        }
-        else if (deliveryDistance >= 60 && deliveryDistance <= 100) { 
-            System.out.printf("Потребуется дней: %d", defaultDeliverytime + 2);
+        else if (deliveryDistance <= 60) {
+            return defaultDeliverytime += 1;
         }
         else {
-            System.out.println("Доставки нет");
+            return defaultDeliverytime += 2;
         }
     }
 }
