@@ -1,80 +1,89 @@
+import java.time.LocalDate;
+import java.util.Scanner;
+
 public class App {
     public static void main(String[] args) throws Exception {
+
+        //Задание №1
         
-        //Задача №1
+        Scanner yearScanner = new Scanner(System.in);
 
-        for (int i = 0; i <= 10 ; i++) {
-            System.out.println(i);
+        int year;
+
+        System.out.print("Укажите год: ");
+
+        year = yearScanner.nextInt();
+
+        isLeapYear(year);
+
+        //Задание №2
+
+        Scanner deviceScanner = new Scanner(System.in);
+
+        int deviceOS;
+        
+        int clientDeviceYear;
+            
+        System.out.print("Какое у вас устройство (0 - iOS, 1 - Android)?: ");
+        deviceOS = deviceScanner.nextInt();
+
+        System.out.print("\nУкажите год выпуска вашего устройства: ");
+        clientDeviceYear = deviceScanner.nextInt();
+
+        appVersion(deviceOS, clientDeviceYear);
+        
+        //Задание №3
+
+        Scanner distanceScanner = new Scanner(System.in);
+
+        int deliveryDistance;
+
+        System.out.print("\nВведите расстояние в километрах: ");
+
+        deliveryDistance = distanceScanner.nextInt();
+
+        System.out.printf("Потребуется дней: %d", calculateDeliveryTime(deliveryDistance));
+    }
+
+    public static void isLeapYear(int year) {
+        if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+            System.out.printf("%d год - високосный год", year);
+        } else {
+            System.out.printf("%d год - невисокосный год", year);
         }
+    }
 
-        //Задача №2
+    public static void appVersion(int deviceOS, int year) {
+        int currentYear = LocalDate.now().getYear();
 
-        for (int i = 10; i >= 1; i--) {
-            System.out.println(i);
+        if (deviceOS == 0 && year < currentYear) {
+            System.out.println("Установите облегченную версию приложения для iOS по ссылке");
         }
-
-        //Задача №3
-
-        for (int i = 0; i <= 17; i += 2) { 
-            System.out.println(i);
+        else if (deviceOS == 1 && year < currentYear) {
+            System.out.println("Установите облегченную версию приложения для Android по ссылке");
         }
-
-        //Задача №4
-
-        for(int i = 10; i >= -10; i--) { 
-            System.out.println(i);
+        else if (deviceOS == 0 && year >= currentYear) {
+            System.out.println("Установите версию приложения для iOS по ссылке");
         }
-
-        //Задача №5
-
-        for (int i = 1904; i <= 2096; i += 4) { 
-            System.out.printf("\n%d год является високосным", i);
+        else if (deviceOS == 1 && year >= currentYear) {
+            System.out.println("Установите версию приложения для Android по ссылке");
         }
-
-        //Задача №6
-
-        for (int i = 7; i <= 98; i += 7) {
-            System.out.printf("%c%d%c", ' ', i, ' ');
+        else {
+            System.out.println("Неизвестное устройство!");
         }
+    }
 
-        //Задача №7
+    public static int calculateDeliveryTime(int deliveryDistance) { 
+        int defaultDeliverytime = 1;
 
-        for (int i = 1; i <= 512; i *= 2) {
-            System.out.printf("%c%d%c", ' ', i, ' ');
+        if (deliveryDistance <= 20) {
+            return defaultDeliverytime;
         }
-
-        //Задача №8
-
-        int savingSum = 29000;
-
-        int totalSavings = 0;
-
-        for (int i = 1; i <= 12; i++) { 
-            totalSavings += savingSum;
-
-            System.out.printf("\nМесяц %d, сумма накоплений равна %d рублей", i, totalSavings);
+        else if (deliveryDistance <= 60) {
+            return defaultDeliverytime += 1;
         }
-
-        //Задача №9
-
-        int savingSum_2 = 29000;
-
-        int totalSavings_2 = 0;
-
-        float percentage = 1.01F;
-
-        for (int i = 1; i <= 12; i++) { 
-            totalSavings_2 += savingSum_2;
-
-            totalSavings_2 *= percentage;
-
-            System.out.printf("\nМесяц %d, сумма накоплений равна %d рублей", i, totalSavings_2);
-        }
-
-        //Задача №10
-
-        for(int i = 1; i <= 10; i++) { 
-            System.out.printf("\n2 * %d = %d", i, i * 2);
+        else {
+            return defaultDeliverytime += 2;
         }
     }
 }
