@@ -1,80 +1,55 @@
+
 public class App {
     public static void main(String[] args) throws Exception {
-        
-        //Задача №1
 
-        for (int i = 0; i <= 10 ; i++) {
-            System.out.println(i);
-        }
+        Author JKRowling = new Author("Joanne", "Rowling");
 
-        //Задача №2
+        Author HPLovecraft = new Author("Howard", "Lovecraft");
 
-        for (int i = 10; i >= 1; i--) {
-            System.out.println(i);
-        }
+        Book HarryPotter = new Book("Harry Potter and the Philosopher`s Stone", JKRowling, 1997);
 
-        //Задача №3
+        Book TheCallOfTheCthulhu = new Book("The call of the Cthulhu", HPLovecraft, 1928);
 
-        for (int i = 0; i <= 17; i += 2) { 
-            System.out.println(i);
-        }
+        System.out.println("------------");
+        System.out.println("Object: JKRowling");
+        System.out.println("------------");
 
-        //Задача №4
+        System.out.printf("Author.toString(): %s \nAuthor.hashCode(): %d \nAuthor.equals(HPLovecraft): %b", 
+        JKRowling.toString(),
+        JKRowling.hashCode(), 
+        JKRowling.equals(HPLovecraft));
 
-        for(int i = 10; i >= -10; i--) { 
-            System.out.println(i);
-        }
+        System.out.println();
 
-        //Задача №5
+        System.out.println("------------");
+        System.out.println("Object: HPLovecraft");
+        System.out.println("------------");
 
-        for (int i = 1904; i <= 2096; i += 4) { 
-            System.out.printf("\n%d год является високосным", i);
-        }
+        System.out.printf("Author.toString(): %s \nAuthor.hashCode(): %d \nAuthor.equals(JKRowling): %b", 
+        HPLovecraft.toString(),
+        HPLovecraft.hashCode(), 
+        HPLovecraft.equals(JKRowling));
 
-        //Задача №6
+        System.out.println();
 
-        for (int i = 7; i <= 98; i += 7) {
-            System.out.printf("%c%d%c", ' ', i, ' ');
-        }
+        System.out.println("------------");
+        System.out.println("Object: HarryPotter");
+        System.out.println("------------");
 
-        //Задача №7
+        System.out.printf("Book.toString(): %s \nBook.hashCode(): %d \nBook.equals(TheCallOfTheCthulhu): %b", 
+        HarryPotter.toString(),
+        HarryPotter.hashCode(), 
+        HarryPotter.equals(TheCallOfTheCthulhu));
 
-        for (int i = 1; i <= 512; i *= 2) {
-            System.out.printf("%c%d%c", ' ', i, ' ');
-        }
+        System.out.println();
 
-        //Задача №8
+        System.out.println("------------");
+        System.out.println("Object: TheCallOfTheCthulhu");
+        System.out.println("------------");
 
-        int savingSum = 29000;
-
-        int totalSavings = 0;
-
-        for (int i = 1; i <= 12; i++) { 
-            totalSavings += savingSum;
-
-            System.out.printf("\nМесяц %d, сумма накоплений равна %d рублей", i, totalSavings);
-        }
-
-        //Задача №9
-
-        int savingSum_2 = 29000;
-
-        int totalSavings_2 = 0;
-
-        float percentage = 1.01F;
-
-        for (int i = 1; i <= 12; i++) { 
-            totalSavings_2 += savingSum_2;
-
-            totalSavings_2 *= percentage;
-
-            System.out.printf("\nМесяц %d, сумма накоплений равна %d рублей", i, totalSavings_2);
-        }
-
-        //Задача №10
-
-        for(int i = 1; i <= 10; i++) { 
-            System.out.printf("\n2 * %d = %d", i, i * 2);
-        }
+        System.out.printf("Book.toString(): %s \nBook.hashCode(): %d \nBook.equals(TheCallOfTheCthulhu): %b", 
+        TheCallOfTheCthulhu.toString(),
+        TheCallOfTheCthulhu.hashCode(), 
+        TheCallOfTheCthulhu.equals(HarryPotter));
     }
 }
