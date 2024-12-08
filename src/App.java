@@ -10,12 +10,46 @@ public class App {
 
         Book TheCallOfTheCthulhu = new Book("The call of the Cthulhu", HPLovecraft, 1928);
 
-        HarryPotter.setYearOfPublication(2024);
+        System.out.println("------------");
+        System.out.println("Object: JKRowling");
+        System.out.println("------------");
 
-        System.out.printf("\n%s \n%s \n%d", HarryPotter.getTitle(), HarryPotter.getAuthor(), HarryPotter.getYearOfPublication());
+        System.out.printf("Author.toString(): %s \nAuthor.hashCode(): %d \nAuthor.equals(HPLovecraft): %b", 
+        JKRowling.toString(),
+        JKRowling.hashCode(), 
+        JKRowling.equals(HPLovecraft));
 
-        System.out.print("\n--------------------------------");
+        System.out.println();
 
-        System.out.printf("\n%s \n%s \n%d", TheCallOfTheCthulhu.getTitle(), TheCallOfTheCthulhu.getAuthor(), TheCallOfTheCthulhu.getYearOfPublication());
+        System.out.println("------------");
+        System.out.println("Object: HPLovecraft");
+        System.out.println("------------");
+
+        System.out.printf("Author.toString(): %s \nAuthor.hashCode(): %d \nAuthor.equals(JKRowling): %b", 
+        HPLovecraft.toString(),
+        HPLovecraft.hashCode(), 
+        HPLovecraft.equals(JKRowling));
+
+        System.out.println();
+
+        System.out.println("------------");
+        System.out.println("Object: HarryPotter");
+        System.out.println("------------");
+
+        System.out.printf("Book.toString(): %s \nBook.hashCode(): %d \nBook.equals(TheCallOfTheCthulhu): %b", 
+        HarryPotter.toString(),
+        HarryPotter.hashCode(), 
+        HarryPotter.equals(TheCallOfTheCthulhu));
+
+        System.out.println();
+
+        System.out.println("------------");
+        System.out.println("Object: TheCallOfTheCthulhu");
+        System.out.println("------------");
+
+        System.out.printf("Book.toString(): %s \nBook.hashCode(): %d \nBook.equals(TheCallOfTheCthulhu): %b", 
+        TheCallOfTheCthulhu.toString(),
+        TheCallOfTheCthulhu.hashCode(), 
+        TheCallOfTheCthulhu.equals(HarryPotter));
     }
 }

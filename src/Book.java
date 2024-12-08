@@ -24,4 +24,30 @@ public class Book {
     public void setYearOfPublication(int yearOfPublication) {
         this.yearOfPublication = yearOfPublication;
     }
+
+    @Override
+    public String toString() {
+        return "Title: " +
+                title +
+                "; Author: " +
+                author.toString() +
+                "; Year of publication: " +
+                yearOfPublication;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+
+        if(getClass() != o.getClass()) return false;
+
+        Book book = (Book)o;
+
+        return this.title == book.title && this.author == book.author && this.yearOfPublication == book.yearOfPublication;
+    }
+
+    @Override
+    public int hashCode() {
+        return (title.length() * author.hashCode() * yearOfPublication) >>> 3;
+    }
 }

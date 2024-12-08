@@ -17,9 +17,22 @@ public class Author {
 
     @Override
     public String toString() {
-        return "First name: " +
-                firstName + 
-                "; Last name: " +
-                lastName;
+        return firstName + " " + lastName;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+
+        if(getClass() != o.getClass()) return false;
+
+        Author author = (Author)o;
+
+        return this.firstName == author.firstName && this.lastName == author.lastName;
+    }
+
+    @Override
+    public int hashCode() {
+        return (firstName.length() * lastName.length()) >>> 2;
     }
 }
