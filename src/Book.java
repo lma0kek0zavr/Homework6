@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Book {
     private String title;
     private Author author;
@@ -48,6 +50,6 @@ public class Book {
 
     @Override
     public int hashCode() {
-        return (title.length() * author.hashCode() * yearOfPublication) >>> 3;
+        return Objects.hash(title, author, yearOfPublication);
     }
 }
