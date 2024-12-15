@@ -1,55 +1,32 @@
-
 public class App {
     public static void main(String[] args) throws Exception {
+       EmployeeBook book = new EmployeeBook(10);
 
-        Author JKRowling = new Author("Joanne", "Rowling");
+       book.add("Ivan", "Ivanovich", "Ivanov", 1, 1000);
+       book.add("Petr", "Petrovich", "Petrov", 2, 2000);
+       book.add("Sidor", "Sidorovich", "Sidorov", 3, 3000);
+       book.add("Vladimir", "Vladimirovich", "Vladimirov", 4, 4000);
+       book.add("Vasily", "Vasilyevich", "Vasilyev", 5, 5000);
+       book.add("Vladislav", "Vladislavovich", "Vladislavov", 3, 6000);
+       book.add("Vladimir", "Vladimirovich", "Vladimirov", 2, 1000);
+       book.add("Vasily", "Vasilyevich", "Vasilyev", 4, 8000);
+       book.add("Vladislav", "Vladislavovich", "Vladislavov", 5, 9000);
+       book.add("Vladimir", "Vladimirovich", "Vladimirov", 4, 4000);
 
-        Author HPLovecraft = new Author("Howard", "Lovecraft");
+       book.getAllEmployees();
+       System.out.println(book.add("Vladimir", "Vladimirovich", "Vladimirov", 4, 4000));
+       System.out.println(book.remove(4));
+       book.getAllEmployees();
+       System.out.println(book.calculateTotalSalary());
+       System.out.println(book.calculateAverageSalary());
+       System.out.println("-------------Min salary------------");
+       System.out.println(book.getEmployeeWithMinimalSalary());
+       
+       System.out.println("-------------Max salary------------");
+       System.out.println(book.getEmployeeWithMaximalSalary());
+       book.indexSalary(10);
+       book.printAllEmployeesFullName();
 
-        Book HarryPotter = new Book("Harry Potter and the Philosopher`s Stone", JKRowling, 1997);
-
-        Book TheCallOfTheCthulhu = new Book("The call of the Cthulhu", HPLovecraft, 1928);
-
-        System.out.println("------------");
-        System.out.println("Object: JKRowling");
-        System.out.println("------------");
-
-        System.out.printf("Author.toString(): %s \nAuthor.hashCode(): %d \nAuthor.equals(HPLovecraft): %b", 
-        JKRowling.toString(),
-        JKRowling.hashCode(), 
-        JKRowling.equals(HPLovecraft));
-
-        System.out.println();
-
-        System.out.println("------------");
-        System.out.println("Object: HPLovecraft");
-        System.out.println("------------");
-
-        System.out.printf("Author.toString(): %s \nAuthor.hashCode(): %d \nAuthor.equals(JKRowling): %b", 
-        HPLovecraft.toString(),
-        HPLovecraft.hashCode(), 
-        HPLovecraft.equals(JKRowling));
-
-        System.out.println();
-
-        System.out.println("------------");
-        System.out.println("Object: HarryPotter");
-        System.out.println("------------");
-
-        System.out.printf("Book.toString(): %s \nBook.hashCode(): %d \nBook.equals(TheCallOfTheCthulhu): %b", 
-        HarryPotter.toString(),
-        HarryPotter.hashCode(), 
-        HarryPotter.equals(TheCallOfTheCthulhu));
-
-        System.out.println();
-
-        System.out.println("------------");
-        System.out.println("Object: TheCallOfTheCthulhu");
-        System.out.println("------------");
-
-        System.out.printf("Book.toString(): %s \nBook.hashCode(): %d \nBook.equals(TheCallOfTheCthulhu): %b", 
-        TheCallOfTheCthulhu.toString(),
-        TheCallOfTheCthulhu.hashCode(), 
-        TheCallOfTheCthulhu.equals(HarryPotter));
+       book.getInfoByDepartment(3, 10);
     }
 }
