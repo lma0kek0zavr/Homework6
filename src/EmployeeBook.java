@@ -40,19 +40,17 @@ public class EmployeeBook {
         }
     }
 
-    public int calculateTotalSalary() {
+    public int getTotalSalary() {
         int totalSalary = 0;
         for(Employee employee : employees) {
-            if (employee == null) { 
-                continue;
-            }
+            if (employee == null) continue;
             totalSalary += employee.getSalary();
         }
         return totalSalary;
     }
 
     public int calculateAverageSalary() { 
-        int totalSalary = calculateTotalSalary();
+        int totalSalary = getTotalSalary();
 
         int averageSalary = totalSalary / employees.length;
         return averageSalary;
@@ -86,6 +84,56 @@ public class EmployeeBook {
 
     public void indexSalary(int indexationPercentage) {
         for(Employee employee : employees) { 
+            if (employee == null) continue;
+            employee.setSalary((employee.getSalary() * indexationPercentage / 100) + employee.getSalary());
+        }
+    }
+
+    public String getEmployeeWithMinimalSalaryByDepartment(int department) {
+        Employee[] employeesByDepartment = collectEmployeesByDepartment(department);
+
+        Employee[] temp = new Employee[employeesByDepartment.length];
+        System.arraycopy(employeesByDepartment, 0, temp, 0, employeesByDepartment.length);
+
+        Arrays.sort(temp, salaryComparator);
+        return temp[0].toString();
+    }
+  
+    public String getEmployeeWithMaximalSalaryByDepartment(int department) {
+        Employee[] employeesByDepartment = collectEmployeesByDepartment(department);
+
+        Employee[] temp = new Employee[employeesByDepartment.length];
+        System.arraycopy(employeesByDepartment, 0, temp, 0, employeesByDepartment.length);
+
+        Arrays.sort(temp, salaryComparator);
+        return temp[temp.length - 1].toString();
+    }
+
+    public int getTotalSalaryByDepartment(int department) {
+        Employee[] employeesByDepartment = collectEmployeesByDepartment(department);
+
+        int totalSalary = 0;
+        for(Employee employee : employeesByDepartment) { 
+            if (employee == null) continue;
+            totalSalary += employee.getSalary();
+        }
+        return totalSalary;
+    }
+
+    public int getAverageSalaryByDepartment(int department) {
+        Employee[] employeesByDepartment = collectEmployeesByDepartment(department); 
+
+        int totalSalary = getTotalSalaryByDepartment(department);
+
+        int averageSalary = totalSalary / employeesByDepartment.length;
+
+        return averageSalary;
+    }
+
+    public void indexSalaryByDepartment(int indexationPercentage, int department) {
+        Employee[] employeesByDepartment = collectEmployeesByDepartment(department);
+
+        for(Employee employee : employeesByDepartment) { 
             if (employee == null) { 
                 continue;
             }
@@ -93,7 +141,18 @@ public class EmployeeBook {
         }
     }
 
-    public void getInfoByDepartment(int department) {
+    public void getEmployeesByDepartment(int department) {
+        Employee[] employeesByDepartment = collectEmployeesByDepartment(department);
+
+        for(Employee employee : employeesByDepartment) { 
+            System.out.printf("\n[Id: %d; Full name: %s; Salary: %d]",
+            employee.getEmployeeId(),
+            employee.getFullName(),
+            employee.getSalary());
+        }
+    }
+
+    private Employee[] collectEmployeesByDepartment(int department) {
         int departmentSize = 0;
 
         for(Employee employee : employees) {
@@ -114,11 +173,6 @@ public class EmployeeBook {
             }
         }
 
-        for(Employee employee : employeesByDepartment) { 
-            System.out.printf("\n[Id: %d; Full name %s; Salary: %d]",
-            employee.getEmployeeId(),
-            employee.getFullName(),
-            employee.getSalary());
-        }
+        return employeesByDepartment;
     }
 } 

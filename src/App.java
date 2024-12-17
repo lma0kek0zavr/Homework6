@@ -15,14 +15,22 @@ public class App {
 
        book.getAllEmployees();
        System.out.println(book.add("Vladimir", "Vladimirovich", "Vladimirov", 4, 4000));
-       System.out.println(book.remove(4));
+       System.out.println(book.remove(2));
        book.getAllEmployees();
-       System.out.println(book.calculateTotalSalary());
+       System.out.println(book.getTotalSalary());
        System.out.println(book.calculateAverageSalary());
        System.out.println(book.getEmployeeWithMinimalSalary());
        System.out.println(book.getEmployeeWithMaximalSalary());
        book.indexSalary(10);
        book.printAllEmployeesFullName();
-       book.getInfoByDepartment(3);
+
+       System.out.println("\nInfo by department\n");
+
+       System.out.println(book.getEmployeeWithMinimalSalaryByDepartment(3));
+       System.out.println(book.getEmployeeWithMaximalSalaryByDepartment(3));
+       System.out.println(book.getTotalSalaryByDepartment(3));
+       System.out.println(book.getAverageSalaryByDepartment(3));
+       book.indexSalaryByDepartment(10, 3);
+       book.getEmployeesByDepartment(3);
     }
 }
