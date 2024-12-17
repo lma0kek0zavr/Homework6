@@ -19,14 +19,10 @@ public class App {
        book.getAllEmployees();
        System.out.println(book.calculateTotalSalary());
        System.out.println(book.calculateAverageSalary());
-       System.out.println("-------------Min salary------------");
        System.out.println(book.getEmployeeWithMinimalSalary());
-       
-       System.out.println("-------------Max salary------------");
        System.out.println(book.getEmployeeWithMaximalSalary());
        book.indexSalary(10);
        book.printAllEmployeesFullName();
-
-       book.getInfoByDepartment(3, 10);
+       book.getInfoByDepartment(3);
     }
 }

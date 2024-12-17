@@ -93,50 +93,7 @@ public class EmployeeBook {
         }
     }
 
-    private String getEmployeeWithMinimalSalary(Employee[] employeesByDepartment) {
-        Employee[] temp = new Employee[employeesByDepartment.length];
-        System.arraycopy(employeesByDepartment, 0, temp, 0, employeesByDepartment.length);
-
-        Arrays.sort(temp, salaryComparator);
-        return temp[0].toString();
-    }
-
-    private String getEmployeeWithMaximalSalary(Employee[] employeesByDepartment) {
-        Employee[] temp = new Employee[employeesByDepartment.length];
-        System.arraycopy(employeesByDepartment, 0, temp, 0, employeesByDepartment.length);
-
-        Arrays.sort(temp, salaryComparator);
-        return temp[temp.length - 2].toString();
-    }
-
-    private int calculateTotalSalary(Employee[] employeesByDepartment) {
-        int totalSalary = 0;
-        for(Employee employee : employeesByDepartment) {
-            if (employee == null) { 
-                continue;
-            }
-            totalSalary += employee.getSalary();
-        }
-        return totalSalary;
-    }
-
-    private int calculateAverageSalary(Employee[] employeesByDepartment) { 
-        int totalSalary = calculateTotalSalary();
-
-        int averageSalary = totalSalary / employeesByDepartment.length;
-        return averageSalary;
-    }  
-    
-    private void indexSalary(int indexationPercentage, Employee[] employeesByDepartment) {
-        for(Employee employee : employeesByDepartment) { 
-            if (employee == null) { 
-                continue;
-            }
-            employee.setSalary((employee.getSalary() * indexationPercentage / 100) + employee.getSalary());
-        }
-    }
-
-    public void getInfoByDepartment(int department, int indexationPercentage) {
+    public void getInfoByDepartment(int department) {
         int departmentSize = 0;
 
         for(Employee employee : employees) {
@@ -156,19 +113,6 @@ public class EmployeeBook {
                 departmentSize -= 1;
             }
         }
-        
-        String employeeWithMinimalSalary = getEmployeeWithMinimalSalary(employeesByDepartment);
-        String employeeWithMaximalSalary = getEmployeeWithMaximalSalary(employeesByDepartment);
-
-        int totalSalary = calculateTotalSalary(employeesByDepartment);
-        int averageSalary = calculateAverageSalary(employeesByDepartment);
-
-        indexSalary(indexationPercentage, employeesByDepartment);
-
-        System.out.printf("\nEmployees with minimal salary: %s", employeeWithMinimalSalary);
-        System.out.printf("\nEmployees with maximal salary: %s", employeeWithMaximalSalary);
-        System.out.printf("\nTotal salary: %d", totalSalary);
-        System.out.printf("\nAverage salary: %d", averageSalary);
 
         for(Employee employee : employeesByDepartment) { 
             System.out.printf("\n[Id: %d; Full name %s; Salary: %d]",
