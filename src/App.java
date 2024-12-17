@@ -1,80 +1,36 @@
 public class App {
     public static void main(String[] args) throws Exception {
-        
-        //Задача №1
+       EmployeeBook book = new EmployeeBook(10);
 
-        for (int i = 0; i <= 10 ; i++) {
-            System.out.println(i);
-        }
+       book.add("Ivan", "Ivanovich", "Ivanov", 1, 1000);
+       book.add("Petr", "Petrovich", "Petrov", 2, 2000);
+       book.add("Sidor", "Sidorovich", "Sidorov", 3, 3000);
+       book.add("Vladimir", "Vladimirovich", "Vladimirov", 4, 4000);
+       book.add("Vasily", "Vasilyevich", "Vasilyev", 5, 5000);
+       book.add("Vladislav", "Vladislavovich", "Vladislavov", 3, 6000);
+       book.add("Vladimir", "Vladimirovich", "Vladimirov", 2, 1000);
+       book.add("Vasily", "Vasilyevich", "Vasilyev", 4, 8000);
+       book.add("Vladislav", "Vladislavovich", "Vladislavov", 5, 9000);
+       book.add("Vladimir", "Vladimirovich", "Vladimirov", 4, 4000);
 
-        //Задача №2
+       book.getAllEmployees();
+       System.out.println(book.add("Vladimir", "Vladimirovich", "Vladimirov", 4, 4000));
+       System.out.println(book.remove(2));
+       book.getAllEmployees();
+       System.out.println(book.getTotalSalary());
+       System.out.println(book.calculateAverageSalary());
+       System.out.println(book.getEmployeeWithMinimalSalary());
+       System.out.println(book.getEmployeeWithMaximalSalary());
+       book.indexSalary(10);
+       book.printAllEmployeesFullName();
 
-        for (int i = 10; i >= 1; i--) {
-            System.out.println(i);
-        }
+       System.out.println("\nInfo by department\n");
 
-        //Задача №3
-
-        for (int i = 0; i <= 17; i += 2) { 
-            System.out.println(i);
-        }
-
-        //Задача №4
-
-        for(int i = 10; i >= -10; i--) { 
-            System.out.println(i);
-        }
-
-        //Задача №5
-
-        for (int i = 1904; i <= 2096; i += 4) { 
-            System.out.printf("\n%d год является високосным", i);
-        }
-
-        //Задача №6
-
-        for (int i = 7; i <= 98; i += 7) {
-            System.out.printf("%c%d%c", ' ', i, ' ');
-        }
-
-        //Задача №7
-
-        for (int i = 1; i <= 512; i *= 2) {
-            System.out.printf("%c%d%c", ' ', i, ' ');
-        }
-
-        //Задача №8
-
-        int savingSum = 29000;
-
-        int totalSavings = 0;
-
-        for (int i = 1; i <= 12; i++) { 
-            totalSavings += savingSum;
-
-            System.out.printf("\nМесяц %d, сумма накоплений равна %d рублей", i, totalSavings);
-        }
-
-        //Задача №9
-
-        int savingSum_2 = 29000;
-
-        int totalSavings_2 = 0;
-
-        float percentage = 1.01F;
-
-        for (int i = 1; i <= 12; i++) { 
-            totalSavings_2 += savingSum_2;
-
-            totalSavings_2 *= percentage;
-
-            System.out.printf("\nМесяц %d, сумма накоплений равна %d рублей", i, totalSavings_2);
-        }
-
-        //Задача №10
-
-        for(int i = 1; i <= 10; i++) { 
-            System.out.printf("\n2 * %d = %d", i, i * 2);
-        }
+       System.out.println(book.getEmployeeWithMinimalSalaryByDepartment(3));
+       System.out.println(book.getEmployeeWithMaximalSalaryByDepartment(3));
+       System.out.println(book.getTotalSalaryByDepartment(3));
+       System.out.println(book.getAverageSalaryByDepartment(3));
+       book.indexSalaryByDepartment(10, 3);
+       book.getEmployeesByDepartment(3);
     }
 }
